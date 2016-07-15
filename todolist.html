@@ -28,8 +28,21 @@
 
     <script>
         (function () {
+            var input = document.getElementById('input');
+            var btn = document.getElementById('btnAdd');
+            var list = {
+                todo: document.getElementById('todo'),
+                done: document.getElementById('done')
+            };
 
         }());
+
+        var makeTaskHtml = function (str) {
+            var el = document..createElement('li');
+            el.textContent = str;
+
+            return el;
+        }
     </script>
 
 
