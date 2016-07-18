@@ -48,9 +48,11 @@
                 return el;
             };
 
-            var addTask = function (list, task) {
-                list.todo.appendChild(makeTaskHtml('Test Task'));
+            var addTask = function (lists, task) {
+                lists.appendChild(task);
             };
+            addTask(list.todo, makeTaskHtml('Test Task -todo'));
+            addTask(list.done, makeTaskHtml('Test Task - Done'));
 
 
         }());
