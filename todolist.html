@@ -43,7 +43,11 @@
 
             var makeTaskHtml = function (str) {
                 var el = document.createElement('li'); // creating an li element
-                el.textContent = str;
+                var checkbox = document.createElement('input');
+
+                checkbox.type = 'checkbox';
+                el.appendChild('checkbox');
+                //el.textContent = str;
 
                 return el;
             };
