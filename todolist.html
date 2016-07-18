@@ -42,13 +42,16 @@
              */
 
             var makeTaskHtml = function (str) {
-                var el = document..createElement('li'); // creating an li element
+                var el = document.createElement('li'); // creating an li element
                 el.textContent = str;
 
                 return el;
             };
 
-            list.todo.appendChild(makeTaskHtml('Test Task'));
+            var addTask = function (list, task) {
+                list.todo.appendChild(makeTaskHtml('Test Task'));
+            };
+
 
         }());
     </script>
