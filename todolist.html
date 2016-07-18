@@ -35,16 +35,22 @@
                 done: document.getElementById('done')
             };
 
+            /**
+             *
+             *@param {string} str
+             *@Returns {HTMLElemnt}
+             */
+
+            var makeTaskHtml = function (str) {
+                var el = document..createElement('li'); // creating an li element
+                el.textContent = str;
+
+                return el;
+            };
+
+            list.todo.appendChild(makeTaskHtml('Test Task'));
+
         }());
-
-        var makeTaskHtml = function (str) {
-            var el = document..createElement('li');
-            el.textContent = str;
-
-            return el;
-        };
-
-        list.todo.appendChild(makeTaskHtml('Test Task'));
     </script>
 
 
