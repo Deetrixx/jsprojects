@@ -80,6 +80,13 @@
                 }
             };
             btn.addEventListener('click', onInput);
+            input.addEventListener('keyup', function (event) {
+                var code = event.keyCode;
+
+                if (code === 13) {
+                    onIput();
+                }
+            });
 
 
         }());
