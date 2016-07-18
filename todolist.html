@@ -46,9 +46,11 @@
                 var checkbox = document.createElement('input');
                 var label = document.createElement('span');
 
-                label.textContent = str;
                 checkbox.type = 'checkbox';
+                label.textContent = str;
+
                 el.appendChild(checkbox);
+                el.appendChild(label);
                 //el.textContent = str;
 
                 return el;
