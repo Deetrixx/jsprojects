@@ -30,7 +30,7 @@
         (function () {
             var input = document.getElementById('input');
             var btn = document.getElementById('btnAdd');
-            var list = {
+            var lists = {
                 todo: document.getElementById('todo'),
                 done: document.getElementById('done')
             };
@@ -59,14 +59,14 @@
             };
 
             var addTask = function (task) {
-                list.todo.appendChild(task);
+                lists.todo.appendChild(task);
             };
 
             var onCheck = function (event) {
                 var task = event.target.parentElement;
-                var lists = task.parentElement.id;
+                var list = task.parentElement.id;
 
-                list[lists === 'done' ? 'todo' : 'done'].appendChild(task);
+                lists[list === 'done' ? 'todo' : 'done'].appendChild(task);
 
             };
             // addTask(list.todo, makeTaskHtml('Test Task -todo', onCheck));
@@ -74,17 +74,20 @@
             var onIput = function () {
                 var str = input.value.trim();
 
-                if (str.length >= 0) {
+                if (str.length > 0) {
                     addTask(makeTaskHtml(str, onCheck));
+
+                    input.value = '';
+                    input.focus();
 
                 }
             };
-            btn.addEventListener('click', onInput);
+            btnAdd.addEventListener('click', onInput);
             input.addEventListener('keyup', function (event) {
                 var code = event.keyCode;
 
                 if (code === 13) {
-                    onIput();
+                    onInput();
                 }
             });
 
