@@ -38,15 +38,17 @@
             /**
              *
              *@param {string} str
+             *@param {function} onCheck
              *@Returns {HTMLElemnt}
              */
 
-            var makeTaskHtml = function (str) {
+            var makeTaskHtml = function (str, onCheck) {
                 var el = document.createElement('li'); // creating an li element
                 var checkbox = document.createElement('input');
                 var label = document.createElement('span');
 
                 checkbox.type = 'checkbox';
+                checkbox.addEventListener('click', onCheck); // Calls the onCheck call back function once a task has been  clicked
                 label.textContent = str;
 
                 el.appendChild(checkbox);
@@ -56,11 +58,28 @@
                 return el;
             };
 
-            var addTask = function (lists, task) {
-                lists.appendChild(task);
+            var addTask = function (task) {
+                list.todo.appendChild(task);
             };
-            addTask(list.todo, makeTaskHtml('Test Task -todo'));
-            addTask(list.done, makeTaskHtml('Test Task - Done'));
+
+            var onCheck = function (event) {
+                var task = event.target.parentElement;
+                var lists = task.parentElement.id;
+
+                list[lists === 'done' ? 'todo' : 'done'].appendChild(task);
+
+            };
+            // addTask(list.todo, makeTaskHtml('Test Task -todo', onCheck));
+            //addTask(list.done, makeTaskHtml('Test Task - Done', onCheck));
+            var onIput = function () {
+                var str = input.value.trim();
+
+                if (str.length >= 0) {
+                    addTask(makeTaskHtml(str, onCheck));
+
+                }
+            };
+            btn.addEventListener('click', onInput);
 
 
         }());
