@@ -67,11 +67,13 @@
                 var list = task.parentElement.id;
 
                 lists[list === 'done' ? 'todo' : 'done'].appendChild(task);
+                this.checked = false;
+                input.focus();
 
             };
-            // addTask(list.todo, makeTaskHtml('Test Task -todo', onCheck));
+            //addTask(list.todo, makeTaskHtml('Test Task -todo', onCheck));
             //addTask(list.done, makeTaskHtml('Test Task - Done', onCheck));
-            var onIput = function () {
+            var onInput = function () {
                 var str = input.value.trim();
 
                 if (str.length > 0) {
